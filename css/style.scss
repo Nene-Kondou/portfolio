@@ -1,0 +1,121 @@
+@charset "utf-8";
+
+$breakpoints: (
+  "sp": "screen and (max-width: 767px)",
+  "pc": "screen and (min-width: 768px)",
+);
+
+@mixin mq($breakpoint: sp) {
+  @media #{map-get($breakpoints, $breakpoint)} {
+    @content;
+  }
+}
+
+/*==========================================================================
+# reset - ブラウザの差異や不要なスタイルを無くすためのスタイル
+========================================================================== */
+* {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+html, body, h1, h2, h3, h4, h5, h6, ul, ol, dl, li, dt, dd, p, div, span, img, a, table, tr, th, td, small, button, time, figure {
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  margin: 0;
+  padding: 0;
+  vertical-align: baseline;
+}
+
+html {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+li, dd {
+  list-style-type: none;
+}
+
+header, footer, nav, section, article, aside, figure, figcaption {
+  display: block;
+}
+
+img {
+  border: none;
+  vertical-align: bottom;
+}
+
+a {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+
+
+
+body {
+  font-family: 'Avenir','Helvetica Neue','Helvetica','Arial','Hiragino Sans','ヒラギノ角ゴシック',YuGothic,'Yu Gothic','メイリオ', Meiryo,'ＭＳ Ｐゴシック','MS PGothic',sans-serif;
+}
+
+
+// header
+header {
+  display: flex;
+  position: fixed;
+  width: 100%;
+}
+
+.header__logo {
+  a {
+    font-size: 1.5em;
+    color: #fff;
+    font-weight: bold;
+  }
+}
+
+.header__nav {
+  margin-left: auto;
+}
+
+.header__nav-list {
+  display: flex;
+
+  li {
+    a {
+      display: block;
+      font-size: 15px;
+      color: #fff;
+    }
+  }
+}
+
+
+// 
+main {
+
+}
+
+// main home
+.home {
+  background: url(../img/header-bg.jpg) no-repeat center center / cover;
+  height: 100vh;
+}
+
+// main about
+.about {
+
+}
+
+// main portfolio
+.portfolio {
+
+}
+
+// main contact
+.contact {
+  
+}
