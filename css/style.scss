@@ -61,15 +61,27 @@ body {
   font-family: 'Avenir','Helvetica Neue','Helvetica','Arial','Hiragino Sans','ヒラギノ角ゴシック',YuGothic,'Yu Gothic','メイリオ', Meiryo,'ＭＳ Ｐゴシック','MS PGothic',sans-serif;
 }
 
+.inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+  box-sizing: content-box;
+}
+
 
 // header
 header {
   display: flex;
+  align-items: center;
   position: fixed;
+  left: 0;
+  right: 0;
   width: 100%;
+  z-index: 999;
+  height: 70px;
 }
 
-.header__logo {
+.header-logo {
   a {
     font-size: 1.5em;
     color: #fff;
@@ -77,18 +89,27 @@ header {
   }
 }
 
-.header__nav {
+.header-nav {
   margin-left: auto;
 }
 
-.header__nav-list {
+.header-nav-list {
   display: flex;
 
   li {
+    
     a {
       display: block;
       font-size: 15px;
       color: #fff;
+      letter-spacing: .05em;
+      padding: 12px 18px;
+      font-weight: bold;
+      transition: .3s;
+
+      &:hover {
+        color: #e83e8c;
+      }
     }
   }
 }
@@ -96,19 +117,58 @@ header {
 
 // 
 main {
-
 }
 
 // main home
 .home {
   background: url(../img/header-bg.jpg) no-repeat center center / cover;
   height: 100vh;
+  background-color: rgba(0, 0, 0, 0.69);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
+
+.home-bg-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.69);
+}
+
+.home-title {
+  font-size: 54px;
+  color: #ffffff;
+  font-weight: bold;
+  text-align: center;
+  letter-spacing: .05em;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+
+
+
+
+
+
 
 // main about
 .about {
 
 }
+
+
+
+
+
+
+
 
 // main portfolio
 .portfolio {
@@ -117,5 +177,5 @@ main {
 
 // main contact
 .contact {
-  
+
 }
