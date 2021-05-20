@@ -4,50 +4,156 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>My Portfolio</title>
+  <!-- fontawesome -->
+  <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+  <!-- wow -->
+  <link rel="stylesheet" href="css/animate.css">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-  <header class="inner">
-    <div class="header-logo">
-      <a href="/">Oto</a>
+  <header>
+    <div class="inner header-inner">
+      <div class="header-logo">
+        <a href="/">Oto</a>
+      </div>
+      <div class="header-nav">
+        <ul class="header-nav-list">    
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
     </div>
-    <div class="header-nav">
-      <ul class="header-nav-list">    
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#portfolio">Portfolio</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </div>
-  </header>
 
+    <!-- <div class="drawer-icon">
+      <div class="drawer-icon-bars is-active">
+        <div class="drawer-icon-bar1"></div>
+        <div class="drawer-icon-bar2"></div>
+        <div class="drawer-icon-bar3"></div>
+      </div>
+    </div>
+    
+    <ul class="drawer-content-list">
+      <li class="drawer-content-item"><a href="#home">Home</a></li>
+      <li class="drawer-content-item"></li>><a href="#about">About</a></li>
+      <li class="drawer-content-item"></li>><a href="#portfolio">Portfolio</a></li>
+      <li class="drawer-content-item"></li>><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="drawer-background"></div> -->
+  </header>
+  
   <main>
     <section class="home" id="home">
       <div class="home-bg-overlay"></div>
-      <h2 class="home-title">Nene's<br>Portfolio Site</h2>
+      <h2 class="home-title wow flash">Nene's<br>Portfolio Site</h2>
     </section>
     <!-- ./top -->
 
-    <section class="about" id="about">
-
+    <section class="about inner" id="about">
+      <div class="about-img">
+        <img src="./img/about.jpg" alt="">
+      </div>
+      <div class="about-me">
+        <p class="about-title">About Me</p>
+        <p class="about-name"><span>近藤 音々</span> (Nene Kondou)</p>
+        <p class="about-text">
+          生年月日 : 1998年 12月 17日 (22歳)<br>
+          千葉県出身。高校卒業後、小売業に就職。<br>
+          web制作の魅力に取り憑かれ、21年1月〜 独学にて勉強中。
+        </p>
+      </div>
     </section>
     <!-- ./about -->
 
-    <section class="portfolio" id="portfolio">
+    <section class="skill">
+      <div class="inner">
+        <h3 class="section-title wow fadeInUp">Skill</h3>
+        <ul class="skill-list">
+          <li><i class="fab fa-html5 icon"></i></li>
+          <li><i class="fab fa-sass icon"></i></li>
+          <li><i class="fab fa-js icon"></i></li>
+          <li><i class="fab fa-wordpress icon"></i></li>
+        </ul>
+        <p class="skill-text">コーディング、レスポンシブ、JavaScript(jQuery)にてサイトに動きをつけ、WordPress化するまでを学習しております。</p>
+      </div>
+    </section>
 
+    <section class="portfolio" id="portfolio">
+      <div class="inner">
+        <h3 class="section-title wow fadeInUp">Works</h3>
+        <ul class="portfolio-list wow fadeInUp">
+          <li><a href="#">
+            <img src="./img/noimg.jpg" alt="">
+            <p>特記すること。特記すること。特記すること。特記すること。特記すること。特記すること。特記すること。特記すること。</p>
+          </a></li>
+          <li><a href="#">
+            <img src="./img/noimg.jpg" alt="">
+            <p>特記すること。特記すること。特記すること。特記すること。特記すること。特記すること。特記すること。特記すること。</p>
+          </a></li>
+          <li><a href="#">
+            <img src="./img/noimg.jpg" alt="">
+            <p>特記すること。特記すること。特記すること。特記すること。特記すること。特記すること。特記すること。特記すること。</p>
+          </a></li>
+          <li><a href="#">
+            <img src="./img/noimg.jpg" alt="">
+            <p>特記すること。特記すること。特記すること。特記すること。特記すること。特記すること。特記すること。特記すること。</p>
+          </a></li>
+        </ul>
+      </div>
     </section>
     <!-- ./portfolio -->
 
     <section class="contact" id="contact">
-
+      <div class="inner">
+        <h3 class="section-title wow fadeInUp">Contact</h3>
+        <form action="" class="contact-form" method="POST">
+          <p class="contact-text"><span class="contact-text-inline">＊</span>は入力必須項目です</p>
+          <dl class="contact-list">
+            <div class="contact-item">
+              <dt class="contact-item-title">
+                お名前<span class="contact-item-inline">＊</span>
+              </dt>
+              <dd class="contact-item-input">
+                <input type="text" required>
+              </dd>
+            </div>
+            <div class="contact-item">
+              <dt class="contact-item-title">
+                メールアドレス<span class="contact-item-inline">＊</span>
+              </dt>
+              <dd class="contact-item-input">
+                <input type="email" required>
+              </dd>
+            </div>
+            <div class="contact-item">
+              <dt class="contact-item-title">
+                お問い合わせ内容<span class="contact-item-inline">＊</span>
+              </dt>
+              <dd class="contact-item-input">
+                <textarea name="" required></textarea>
+              </dd>
+            </div>
+            <div class="contact-submit">
+              <button type="submit" class="">送信</button>
+            </div>
+          </dl>
+        </form>
+      </section>
+      </div>
     </section>
     <!-- ./contact -->
 
   </main>
 
   <footer>
-
+    <p class="footer-text">&copy; oto 2021</p>
   </footer>
+  <!-- wow -->
+  <script src="js/wow.min.js"></script>
+  <!-- jquery -->
+  <script src="//code.jquery.com/jquery-1.12.1.min.js"></script>
+  <script src="js/main.js"></script>
 </body>
 </html>

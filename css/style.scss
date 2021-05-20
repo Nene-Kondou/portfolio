@@ -1,5 +1,9 @@
 @charset "utf-8";
 
+$font-color: #333333;
+$font-sub-color: #6c757d;
+$accent-color: #e65f78;
+
 $breakpoints: (
   "sp": "screen and (max-width: 767px)",
   "pc": "screen and (min-width: 768px)",
@@ -8,6 +12,17 @@ $breakpoints: (
 @mixin mq($breakpoint: sp) {
   @media #{map-get($breakpoints, $breakpoint)} {
     @content;
+  }
+}
+
+@include mq(sp) {
+  .is-pc {
+    display: none;
+  }
+}
+@include mq(pc) {
+  .is-sp {
+    display: none;
   }
 }
 
@@ -47,6 +62,7 @@ header, footer, nav, section, article, aside, figure, figcaption {
 img {
   border: none;
   vertical-align: bottom;
+  max-width: 100%;
 }
 
 a {
@@ -59,6 +75,9 @@ a {
 
 body {
   font-family: 'Avenir','Helvetica Neue','Helvetica','Arial','Hiragino Sans','ヒラギノ角ゴシック',YuGothic,'Yu Gothic','メイリオ', Meiryo,'ＭＳ Ｐゴシック','MS PGothic',sans-serif;
+  color: $font-color;
+  font-size: 16px;
+  background: #ffffff;
 }
 
 .inner {
@@ -66,18 +85,32 @@ body {
   margin: 0 auto;
   padding: 0 40px;
   box-sizing: content-box;
+
+  @include mq(sp) {
+    padding: 0 15px;
+  }
+}
+
+.section-title {
+  font-size: 32px;
+  font-weight: bold;
+  text-align: center;
+  padding-top: 100px;
 }
 
 
 // header
 header {
-  display: flex;
-  align-items: center;
+}
+
+.header-inner {
   position: fixed;
   left: 0;
   right: 0;
-  width: 100%;
-  z-index: 999;
+  z-index: 900;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   height: 70px;
 }
 
@@ -90,7 +123,10 @@ header {
 }
 
 .header-nav {
-  margin-left: auto;
+
+  @include mq(sp) {
+    display: none;
+  }
 }
 
 .header-nav-list {
@@ -108,27 +144,75 @@ header {
       transition: .3s;
 
       &:hover {
-        color: #e83e8c;
+        color: $accent-color;
       }
     }
   }
 }
 
-
-// 
-main {
+// drawer 
+.drawer-icon {
+  @include mq(pc) {
+    display: none;
+  }
 }
+
+.drawer-icon-bars {
+  width: 22px;
+  height: 20px;
+
+  &.is-active {
+    .drawer-icon-bar1 {
+      top: 8px;
+      transform: rotate(-45deg);
+    }
+
+    .drawer-icon-bar2 {
+      display: none;
+    }
+
+    .drawer-icon-bar3 {
+      top: 8px;
+      transform: rotate(45deg);
+    }  
+  }
+}
+
+.drawer-icon-bar1,
+.drawer-icon-bar2,
+.drawer-icon-bar3 {
+  position: absolute;
+  width: 22px;
+  height: 2px;
+  background: #ffffff;
+  top: 0;
+  left: 0;
+}
+
+.drawer-icon-bar1 {
+  top: 0;
+}
+
+.drawer-icon-bar2 {
+  top: 8px;
+}
+
+.drawer-icon-bar3 {
+  top: 16px;
+}
+
+.drawer-background {
+  display: none;
+}
+
+
+
 
 // main home
 .home {
+  position: relative;
   background: url(../img/header-bg.jpg) no-repeat center center / cover;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.69);
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
 }
 
 .home-bg-overlay {
@@ -144,25 +228,103 @@ main {
   font-size: 54px;
   color: #ffffff;
   font-weight: bold;
-  text-align: center;
   letter-spacing: .05em;
   position: absolute;
+  transform: translate(-50%,-50%);
   top: 50%;
   left: 50%;
-  transform: translate(-50%,-50%);
 }
-
-
-
-
 
 
 
 // main about
 .about {
+  margin: 100px 0;
+  
+  @include mq(pc) {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.about-img {
+  img {
+    width: 100%;
+  }
+  
+  @include mq(pc) {
+    flex: 0 1 50%;
+  }
+}
+
+.about-me {
+  
+  @include mq(pc) {
+    flex: 0 0 50%;
+    margin-left: 30px;
+  }
+}
+
+.about-title {
+  font-size: 32px;
+  font-weight: bold;
+  
+  @include mq(sp) {
+    margin-top: 16px;
+  }
+}
+
+.about-name {
+  font-weight: bold;
+  font-size: 24px;
+  margin-top: 24px;
+
+  span {
+    color: $accent-color;
+  }
+}
+
+.about-text {
+  color: $font-sub-color;
+  line-height: 2;
+  margin-top: 24px;
+}
+
+
+// skill
+.skill {
+  background: #f8f9fa;
+  padding-bottom: 100px;
+}
+
+.skill-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 40px;
+
+  li {
+    padding: 20px;
+  }
 
 }
 
+.icon {
+  font-size: 70px;
+  width: 70px;
+
+  @include mq(sp) {
+    width: calc(100% - 40px * 2 / 2);
+  }
+}
+
+.skill-text {
+  margin-top: 40px;
+  font-size: 24px;
+  line-height: 2;
+  text-align: center;
+  color: $font-sub-color;
+}
 
 
 
@@ -172,10 +334,160 @@ main {
 
 // main portfolio
 .portfolio {
-
+  padding-bottom: 100px;
 }
+
+.portfolio-title {
+}
+
+
+.portfolio-list {
+  @include mq(pc) {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  margin-top: 25px;
+
+  li {
+    
+    @include mq(pc) {
+      flex: 0 0 33.333333%;
+      padding: 15px;
+    }
+    
+    a {
+      display: block;
+      
+      @include mq(sp) {
+        margin-top: 30px;
+      }
+
+      img {
+        
+      }
+  
+      p {
+        margin-top: 10px;
+        color: $font-sub-color;
+
+        @include mq(sp) {
+          margin-top: 16px;
+        }
+      }
+    }
+
+  }
+}
+
+
+
 
 // main contact
 .contact {
+  background: #f8f9fa;
+  padding-bottom: 100px;
+}
 
+.section-title {
+
+}
+
+.contact-form {
+
+}
+
+.contact-text {
+  text-align: center;
+  margin-top: 40px;
+
+  .contact-text-inline {
+    color: $accent-color;
+    
+  }
+}
+
+.contact-list {
+  width: 700px;
+  max-width: 100%;
+  margin: 20px auto 0;
+  background: #ffffff;
+  padding: 60px;
+
+  @include mq(sp) {
+    padding: 24px;
+  }
+}
+
+.contact-item {
+  & + & {
+    margin-top: 10px;
+  }
+}
+
+.contact-item-title {
+
+  .contact-item-inline {
+    color: $accent-color;
+  }
+}
+
+.contact-item-input {
+
+}
+
+[type="text"],
+[type="email"] {
+  box-shadow: none;
+  border: 1px solid #CECDCD;
+  padding: 12px 16px;
+  appearance: none;
+  border-radius: 0;
+  color: inherit;
+  font-family: inherit;
+  font-size: 14px;
+  width: 100%;
+  margin-top: 10px;
+}
+
+textarea {
+  width: 100%;
+  min-height: 122px;
+  font-size: 16px;
+  border: 0;
+  padding: .2em .5em;
+  border: 1px solid #CECDCD;
+  margin-top: 10px;
+}
+
+.contact-submit {
+  text-align: center;
+  margin-top: 40px;
+
+  button {
+    display: inline-block;
+    background: $accent-color;
+    color: #ffffff;
+    font-size: 14px;
+    padding: 16px 54px;
+    cursor: pointer;
+    transition: .3s;
+
+    &:hover {
+      background: #ffffff;
+      color: $accent-color;
+      border: 1px solid $accent-color;
+    }
+  }
+}
+
+
+// footer
+footer {
+  background: #242424;
+  padding: 50px 0;
+}
+
+.footer-text {
+  color: #6c757d;
+  text-align: center;
 }
