@@ -311,7 +311,7 @@ body {
 
 // main about
 .about {
-  margin: 100px 0;
+  margin: 100px auto;
   
   @include mq(pc) {
     display: flex;
@@ -448,6 +448,7 @@ body {
         padding: 10px;
         color: $font-sub-color;
         line-height: 1.2;
+        font-size: 14px;
 
         @include mq(sp) {
           margin-top: 16px;
