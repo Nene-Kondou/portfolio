@@ -1,5 +1,6 @@
 $(document).ready(function () {
 
+  // ハンバーガーメニュー
   $('.drawer-icon-bars').on('click', function(e) {
     e.preventDefault();
     $(this).toggleClass('is-active');
@@ -7,16 +8,20 @@ $(document).ready(function () {
     $('.drawer-background').toggleClass("is-active");
   });
 
+
+  // ヘッダー色反転
   $(window).scroll(function() {
     if ($(this).scrollTop() > 720) {
-      $('.header-inner').addClass('is-scroll');
+      $('.header').addClass('is-scroll');
       $('.drawer-icon-bars').children().addClass('is-scroll');
     } else {
-      $('.header-inner').removeClass('is-scroll');
+      $('.header').removeClass('is-scroll');
       $('.drawer-icon-bars').children().removeClass('is-scroll');
     }
   });
 
+
+  // スムーススクロール
   $('a[href^="#"]').click(function() {
     let header = $('.header-inner').innerHeight();
     let speed = 500;

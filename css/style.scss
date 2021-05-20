@@ -100,22 +100,26 @@ body {
 
 
 // header
-.header-inner {
+.header {
   position: fixed;
   left: 0;
   right: 0;
   z-index: 900;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 70px;
   color: #fff;
+  background: transparent;
   transition: .5s;
-
+  
   &.is-scroll {
     background: #ffffff;
     color: $font-color;
   }
+}
+
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 70px;
 }
 
 .header-logo {

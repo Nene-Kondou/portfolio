@@ -83,11 +83,23 @@ body {
   padding-top: 100px;
 }
 
-.header-inner {
+.header {
   position: fixed;
   left: 0;
   right: 0;
   z-index: 900;
+  color: #fff;
+  background: transparent;
+  -webkit-transition: .5s;
+  transition: .5s;
+}
+
+.header.is-scroll {
+  background: #ffffff;
+  color: #333333;
+}
+
+.header-inner {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -98,14 +110,6 @@ body {
       -ms-flex-align: center;
           align-items: center;
   height: 70px;
-  color: #fff;
-  -webkit-transition: .5s;
-  transition: .5s;
-}
-
-.header-inner.is-scroll {
-  background: #ffffff;
-  color: #333333;
 }
 
 .header-logo a {
