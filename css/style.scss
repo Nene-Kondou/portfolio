@@ -100,9 +100,6 @@ body {
 
 
 // header
-header {
-}
-
 .header-inner {
   position: fixed;
   left: 0;
@@ -112,13 +109,20 @@ header {
   justify-content: space-between;
   align-items: center;
   height: 70px;
+  color: #fff;
+  transition: .5s;
+
+  &.is-scroll {
+    background: #ffffff;
+    color: $font-color;
+  }
 }
 
 .header-logo {
   a {
     font-size: 1.5em;
-    color: #fff;
     font-weight: bold;
+    color: inherit;
   }
 }
 
@@ -137,7 +141,7 @@ header {
     a {
       display: block;
       font-size: 15px;
-      color: #fff;
+      color: inherit;
       letter-spacing: .05em;
       padding: 12px 18px;
       font-weight: bold;
@@ -152,19 +156,28 @@ header {
 
 // drawer 
 .drawer-icon {
+  position: fixed;
+  top: 25px;
+  right: 35px;
+  z-index: 1100;
+  
   @include mq(pc) {
     display: none;
   }
 }
 
 .drawer-icon-bars {
+  position: absolute;
   width: 22px;
   height: 20px;
+
 
   &.is-active {
     .drawer-icon-bar1 {
       top: 8px;
       transform: rotate(-45deg);
+      transition: .3s;
+      background-color: $font-color;
     }
 
     .drawer-icon-bar2 {
@@ -174,6 +187,8 @@ header {
     .drawer-icon-bar3 {
       top: 8px;
       transform: rotate(45deg);
+      transition: .3s;
+      background-color: $font-color;
     }  
   }
 }
@@ -184,9 +199,13 @@ header {
   position: absolute;
   width: 22px;
   height: 2px;
-  background: #ffffff;
+  background: #fff;
   top: 0;
   left: 0;
+
+  &.is-scroll {
+    background: $font-color;
+  }
 }
 
 .drawer-icon-bar1 {
@@ -201,8 +220,57 @@ header {
   top: 16px;
 }
 
+.drawer-content {
+  z-index: 1001;
+  width: 300px;
+  height: 100%;
+  position: fixed;
+  right: 0;
+  top: 0;
+  background: #fff;
+  box-shadow: 0 0 3px rgba(#000, .16);
+  transform: translateX(105%);
+  transition: transform .5s ease 0s;
+
+  &.is-active {
+    transform: translateX(0);
+  }
+}
+
+.drawer-content-list {
+  position: absolute;
+  top: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.drawer-content-item {
+  &:hover {
+    opacity: .7;
+  }
+  & + & {
+    margin-top: 30px;
+  }
+
+  a {
+    display: block;
+    color: $font-color;
+  }
+}
+
 .drawer-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(#000, .8);
+  z-index: 1000;
   display: none;
+
+  &.is-active {
+    display: block;
+  }
 }
 
 
@@ -340,6 +408,11 @@ header {
 .portfolio-title {
 }
 
+.portfolio-text {
+  text-align: center;
+  margin-top: 10px;
+}
+
 
 .portfolio-list {
   @include mq(pc) {
@@ -357,18 +430,20 @@ header {
     
     a {
       display: block;
+      box-shadow: 2px 2px 15px rgba(0, 0, 0, .3);
       
       @include mq(sp) {
         margin-top: 30px;
       }
 
       img {
-        
       }
   
       p {
-        margin-top: 10px;
+        min-height: 80px;
+        padding: 10px;
         color: $font-sub-color;
+        line-height: 1.2;
 
         @include mq(sp) {
           margin-top: 16px;
